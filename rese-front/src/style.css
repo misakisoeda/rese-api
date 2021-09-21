@@ -1,0 +1,546 @@
+@charset "UTF-8";
+
+/* ---------------------------------------------
+*   reset style
+--------------------------------------------- */
+@charset "UTF-8";
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,
+menu,nav,output,ruby,section,summary,
+time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+html {
+	line-height: 1;
+}
+
+html,
+body {
+    color: #333;
+    font-size: 16px;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "meiryo", sans-serif;
+}
+
+body {
+    background-color: rgba(225,64,36,.1);
+}
+
+ol,ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption,th,td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+q,blockquote {
+	quotes: none;
+}
+q:before,q:after,blockquote:before,blockquote:after {
+	content: "";
+	content: none;
+	clear: both;
+}
+
+a img {
+	border: none;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+	display: block;
+}
+
+/* ---------------------------------------------
+*   form parts reset style
+--------------------------------------------- */
+input, button, textarea, select {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    font-family: dnp-shuei-gothic-kin-std,"Helvetica Neue","Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+textarea {
+    display: block;
+    overflow: auto;
+    resize: none;
+}
+
+/* ---------------------------------------------
+*   base setting
+--------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Righteous&display=swap');
+/* font-family: 'Righteous', cursive; */
+
+
+h1 {
+    letter-spacing: .03em;
+    color: #fff;
+    font-family: 'Righteous', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h1 span {
+    display: block;
+    cursor: pointer;
+    transition: opacity 300ms;
+}
+
+h1 span:hover {
+    opacity: .8;
+}
+
+/* ---------------------------------------------
+*   wrapper
+--------------------------------------------- */
+.wrapper {
+    padding-top: 72px;
+    min-height: calc(100vh - 72px);
+}
+
+.wrapper--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------------------------------------------
+*   contetainer
+--------------------------------------------- */
+.contetainer {
+    max-width: 1130px;
+    margin-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ---------------------------------------------
+*   header
+--------------------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 18%);
+    background-color: #e14024;
+}
+
+/* ---------------------------------------------
+*   hamburder-menu
+--------------------------------------------- */
+.hamburger-btn {
+    position: absolute;
+    top: 10px;
+    right: 19px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 5px 5px 8px rgba(0,0,0,.7);
+}
+
+.hamburger-btn__item {
+    position: absolute;
+    top: 0;
+    left: 11px;
+    height: 2px;
+    background: #e14024;
+    text-align: center;
+}
+
+.hamburger-btn__item--1 {
+    top: 18px;
+    width: 20px;
+    transition: 0.3s ease;
+}
+
+.hamburger-btn__item--2 {
+    top: 25px;
+    width: 28px;
+    transition: 0.3s ease;
+}
+
+.hamburger-btn__item--3 {
+    top: 32px;
+    width: 10px;
+    transition: 0.3s ease;
+}
+
+.is-active1 {
+    top: 15px;
+    width: 33px;
+    left: 9px;
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.3s ease;
+}
+
+.is-active2 {
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+.is-active3 {
+    top: 35px;
+    width: 33px;
+    left: 9px;
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.3s ease;
+}
+
+/*  hamburger-menu
+--------------------------------------------- */
+.hamburger-menu {
+    background-color: #e14024;
+    z-index: 9;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hamburger-menu p {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: opacity 300ms;
+}
+
+.hamburger-menu p:hover {
+    opacity: .8;
+}
+
+.hamburger-menu ul {
+    margin-top: 110px;
+}
+
+.hamburger-menu li {}
+
+/* -- transition animation -- */
+.hamburger-menu-enter-active,
+.hamburger-menu-leave-active {
+    transition: transform 0.3s;
+}
+
+.hamburger-menu-enter,
+.hamburger-menu-leave-to {
+    transform: translateX(100%);
+}
+
+.hamburger-menu-leave,
+.hamburger-menu-enter-to {
+    transform: translateX(0);
+}
+
+/* ---------------------------------------------
+*   list-item
+--------------------------------------------- */
+.list-item {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.list-item--single .list-item__content {
+    width: 100%;
+    padding: 15px;
+}
+
+.list-item__content {
+    width: calc(100% / 4 - 30px);
+    margin: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+    background-color: #fff;
+}
+
+/* ---------------------------------------------
+*   card-item
+--------------------------------------------- */
+.card-item {
+    position: relative;
+}
+
+.card-item__img {
+    height: 130px;
+}
+
+.card-item__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-item__main {
+    padding: 8px 12px;
+}
+
+.card-item__ttl {}
+
+.card-item__bottom {
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* ---------------------------------------------
+*   tags-item
+--------------------------------------------- */
+.tags-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.tags-item__txt {
+    font-size: .7rem;
+    color: #6c6c6c;
+}
+
+/* ---------------------------------------------
+*   button
+--------------------------------------------- */
+.btn-item {
+    display: inline-block;
+    background-color: #e14024;
+    color: #fff;
+    font-size: .75rem;
+    padding: 6px 13px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+}
+
+.btn-heart {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 30px;
+}
+
+.btn-heart__img {
+    display: block;
+    width: 100%;
+}
+
+/* ---------------------------------------------
+*   panel-item
+--------------------------------------------- */
+.panel-item {
+    min-width: 450px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+}
+
+.panel-item__ttl {
+    background-color: #e14024;
+    color: #fff;
+    padding: 22px 18px;
+}
+
+.panel-item__content {
+    padding: 18px 35px 23px;
+    background-color: #fff;
+}
+
+.panel-item__content-input {
+    display: block;
+    margin: 7px auto;
+    color: #333;
+    width: 350px;
+    padding: 8px;
+    border: 1px solid #333;
+}
+
+.panel-item__content-input::placeholder {
+    color: #999;
+}
+
+.panel-item__content-btn {
+    background-color: #e14024;
+    color: #fff;
+    font-size: .9rem;
+    padding: 9px 15px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+}
+
+.panel-item__content-caption {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* ---------------------------------------------
+*   ttl-item
+--------------------------------------------- */
+.ttl-item {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* ---------------------------------------------
+*   ttl-login
+--------------------------------------------- */
+.ttl-login {
+    text-align: right;
+}
+
+/* ---------------------------------------------
+*   cassette-item
+--------------------------------------------- */
+.cassette-item {
+    display: flex;
+}
+
+.cassette-item__img {
+    width: 250px;
+}
+
+.cassette-item__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cassette-item__main {
+    padding: 13px;
+    box-sizing: border-box;
+    width: calc(100% - 250px - 74px);
+}
+
+.cassette-item__ttl {}
+
+.cassette-item__data {
+    margin-top: 25px;
+}
+
+.cassette-item__data-item {
+    font-size: .85rem;
+}
+
+.cassette-item__data-item:nth-of-type(n + 2) {
+    margin-top: 5px;
+}
+
+.cassette-item__links {
+    width: 74px;
+}
+
+/* ---------------------------------------------
+*   ttl-page
+--------------------------------------------- */
+.ttl-page {
+    color: #484848;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------
+*   txt-page
+--------------------------------------------- */
+.txt-page {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #484848;
+}
+
+/* ---------------------------------------------
+*   img-kv
+--------------------------------------------- */
+.img-kv {
+    height: 350px;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.img-kv img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------------------------------------------
+*   cassette-item
+--------------------------------------------- */
+.cassette-item {
+    display: flex;
+}
+
+.cassette-item__inner {
+    width: 50%;
+}
+
+.cassette-item__txt {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 20px;
+}
