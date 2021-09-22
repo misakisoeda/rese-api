@@ -20,7 +20,8 @@
             </div>
           </div>
           <button class="btn-heart">
-            <img class="btn-heart__img" src="../assets/icon_heart_white.png" />
+            <!-- <img class="btn-heart__img" src="../assets/icon_heart_white.png" /> -->
+            <img class="btn-heart__img" src="../assets/icon_heart_white.png" @click="fav(index)" alt="">
           </button>
          </div>
          <!-- [/card-item] -->
@@ -36,6 +37,7 @@
 import Header from "../components/Header";
 import axios from "axios";
 export default {
+  props: ["id"],
   data: function () {
     return {
       shops: []
@@ -50,6 +52,12 @@ export default {
       //詳細ページのリンク
       this.$router.push({path: '/detail/'+ shop_id, params:{shop_id:shop_id}});
     },
+    fav(shop_id) {
+      //お気に入り
+      const result = this.shops[index].like.some((value) => {
+        return value.user_id == this.$store.state.user.id;
+      });
+    }
   },
   created(){
     this.created();

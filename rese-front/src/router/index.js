@@ -27,9 +27,6 @@ const routes = [{
   path: "/detail/:shop_id",
   name: "detail",
   component: Detail,
-  meta: {
-    requiresAuth: true,
-  },
   props: true,
 },
 {
@@ -50,7 +47,10 @@ const routes = [{
 {
   path: '/mypage',
   name: 'mypage',
-  component: Mypage
+  component: Mypage,
+  meta: {
+    requiresAuth: true,
+  },
 }]
 
 const router = new VueRouter({
