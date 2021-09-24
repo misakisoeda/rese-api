@@ -20,8 +20,9 @@
             </div>
           </div>
           <button class="btn-heart">
-            <!-- <img class="btn-heart__img" src="../assets/icon_heart_white.png" /> -->
-            <img class="btn-heart__img" src="../assets/icon_heart_white.png" @click="fav(index)" alt="">
+            {{ shop.shop_id }}
+            <img src="../assets/icon_heart_white.png" class="btn-heart__img" @click="fav(index)" alt="">
+            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" @click="favDel(index)" alt="">
           </button>
          </div>
          <!-- [/card-item] -->
@@ -40,7 +41,7 @@ export default {
   props: ["id"],
   data: function () {
     return {
-      shops: []
+      shops: [],
     }
   },
   methods: {
@@ -52,12 +53,30 @@ export default {
       //詳細ページのリンク
       this.$router.push({path: '/detail/'+ shop_id, params:{shop_id:shop_id}});
     },
-    fav(shop_id) {
-      //お気に入り
-      const result = this.shops[index].like.some((value) => {
-        return value.user_id == this.$store.state.user.id;
+    fav(index) {
+      axios
+      .post("http://127.0.0.1:8000/api/like", {
+        user_id: this.$store.state.user.id,
+        shop_id: this.shops[index].shop_id
+      }).then((response) => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
       });
-    }
+    },
+    favDel(index) {
+      axios
+      .delete("http://127.0.0.1:8000/api/like", {
+        user_id: this.$store.state.user.id,
+        shop_id: this.shops[index].shop_id
+      }).then((response) => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
   },
   created(){
     this.created();

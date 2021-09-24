@@ -14,6 +14,7 @@ Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/shop/{shop_id}', [ShopController::class, 'store']);
 
 Route::post('/register', [RegisterController::class, 'post']);
+
 Route::post('/login', [LoginController::class, 'post']);
 
 Route::post('/logout', [LogoutController::class, 'post']);
@@ -21,6 +22,7 @@ Route::post('/logout', [LogoutController::class, 'post']);
 Route::get('/user', [UsersController::class, 'get']);
 Route::put('/user', [UsersController::class, 'put']);
 
+Route::get('/like', [LikesController::class, 'index']);
 Route::post('/like', [LikesController::class, 'post']);
 Route::delete('/like', [LikesController::class, 'delete']);
 
