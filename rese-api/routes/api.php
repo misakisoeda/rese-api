@@ -10,8 +10,13 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LikesController;
 // use App\Http\Controllers\BookingController;
 
-Route::get('/shop', [ShopController::class, 'index']);
-Route::get('/shop/{shop_id}', [ShopController::class, 'store']);
+// Route::get('/shop', [ShopController::class, 'index']);
+// Route::get('/shop/{shop_id}', [ShopController::class, 'store']);
+
+Route::prefix('shop')->group(function () {
+    Route::get('', [ShopController::class, 'index']);
+    Route::get('/shop/{shop_id}', [UserController::class,'store']);
+});
 
 Route::post('/register', [RegisterController::class, 'post']);
 
@@ -24,6 +29,10 @@ Route::put('/user', [UsersController::class, 'put']);
 
 Route::get('/like', [LikesController::class, 'index']);
 Route::post('/like', [LikesController::class, 'post']);
-Route::delete('/like', [LikesController::class, 'delete']);
+Route::delete('/like',[LikesController::class,'delete']);
+// Route::post('/like', [LikesController::class, 'delete']);
+// Route::get('/delete', [LikesController::class, 'delete']);
+// Route::post('/delete', [LikesController::class, 'remove']);
+
 
 // Route::post('/booking', [BookingController::class, 'post']);

@@ -11,6 +11,19 @@ use Carbon\Carbon;  //DateTimeクラスを継承した日時を扱う
 class LikesController extends Controller
 {
 
+    // public function index(Request $request)
+    // {
+    //     $user_id = $request->user_id;
+    //     $likesdata=Like::where('user_id',$user_id)->with(['shop'=>function($query){
+    //         $query->with('shop_place','shop_genre');
+    //     }])->get();
+
+    //     return response()->json([
+    //         'message'=>'OK',
+    //         'data'=>$likesdata
+    //         ],200);
+    // }
+
     public function post(Request $request)
     {
         $now = Carbon::now();
@@ -22,7 +35,7 @@ class LikesController extends Controller
         ];
         DB::table('likes')->insert($param);
         return response()->json([
-            'message' => 'Like created successfully',
+            'message' => 'Like created successfully, index',
             'data' => $param
         ], 200);
 
@@ -31,23 +44,18 @@ class LikesController extends Controller
 
     public function delete(Request $request)
     {
-        new Like;
-        DB::table('likes')->where('user_id', $request->user_id)->where('shop_id', $request->shop_id)->delete();
+        $param = [
+            "user_id" => $request->user_id,
+            "shop_id" => $request->shop_id
+        ];
+        DB::table('likes')->where('id', $request->id)->delete();
+
+        // DB::table('likes')->delete($param);
         return response()->json([
-            'message' => 'Like deleted successfully',
+            'message' => 'Like created successfully, delete',
+            'data' => $param
         ], 200);
-    }
 
-    public function index(Request $request)
-    {
-        $user_id=$request->user_id;
-        $likesdata=Like::where('user_id',$user_id)->with(['shop'=>function($query){
-            $query->with('shop_place','shop_genre');
-        }])->get();
-
-        return response()->json([
-            'message'=>'OK',
-            'data'=>$likesdata
-            ],200);
+        // return response()->json([$param]);
     }
 }
