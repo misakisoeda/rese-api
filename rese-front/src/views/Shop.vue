@@ -59,50 +59,53 @@ export default {
         user_id: this.$store.state.user.id,
         shop_id: this.shops[index].shop_id
       }).then((response) => {
+        console.log('okdesu');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
+    // favDel(index){
+    //     const result =this.shops.like.some((value)=>{
+    //       return value.user_id==this.$store.state.id;
+    //     });
+    //     if(result){
+    //       this.shops.like.forEach(element => {
+    //         if(element.user_id==this.$store.state.id){
+    //           axios({
+    //             method:"delete",
+    //             url:"http://127.0.0.1:8000/api/like",
+    //             data:{
+    //               shop_id:this.shops.id,
+    //               user_id:this.$store.state.id,
+    //             },
+    //           }).then((response)=>{
+    //             console.log(response);
+    //             this.show=!this.show
+    //             this.$router.go({
+    //               path:this.$router.currentRoute.path,
+    //               force:true,
+    //             })
+    //           })
+    //         }
+    //       });
+    //     }
+    //   },
+    favDel(index) {
+      axios.request({
+        method: 'delete',
+        url: "http://127.0.0.1:8000/api/like",
+        data: {
+          shop_id:this.shops.id,
+          user_id:this.$store.state.id,
+        }
+      }).then((response) => {
         console.log(response);
       })
       .catch(error => {
         console.log(error);
       });
     },
-    favDel(index){
-        const result =this.shops.like.some((value)=>{
-          return value.user_id==this.$store.state.id;
-        });
-        if(result){
-          this.shops.like.forEach(element => {
-            if(element.user_id==this.$store.state.id){
-              axios({
-                method:"delete",
-                url:"http://127.0.0.1:8000/api/like",
-                data:{
-                  shop_id:this.shops.id,
-                  user_id:this.$store.state.id,
-                },
-              }).then((response)=>{
-                console.log(response);
-                this.show=!this.show
-                this.$router.go({
-                  path:this.$router.currentRoute.path,
-                  force:true,
-                })
-              })
-            }
-          });
-        }
-      },
-    // favDel(index) {
-    //   axios
-    //   .delete("http://127.0.0.1:8000/api/like", {
-    //     user_id: this.$store.state.user.id,
-    //     shop_id: this.shops[index].shop_id
-    //   }).then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-    // },
   },
   created(){
     this.created();
