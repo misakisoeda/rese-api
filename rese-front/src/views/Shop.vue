@@ -21,8 +21,10 @@
           </div>
           <button class="btn-heart">
             {{ shop.shop_id }}
-            <img src="../assets/icon_heart_white.png" class="btn-heart__img" v-if="show" @click="fav(index); change();" alt="">
-            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" v-else @click="favDel(index)" alt="">
+            <!-- <img src="../assets/icon_heart_white.png" class="btn-heart__img" v-if="show" @click="fav(index); change();" alt="">
+            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" v-else @click="favDel(index)" alt=""> -->
+            <img src="../assets/icon_heart_white.png" class="btn-heart__img" @click="fav(index);" alt="">
+            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" @click="favDel(index)" alt="">
           </button>
          </div>
          <!-- [/card-item] -->
@@ -67,29 +69,40 @@ export default {
       });
     },
     favDel(index) {
-      axios.request({
-        method: 'delete',
-        url: "http://127.0.0.1:8000/api/like",
+      axios.delete('http://127.0.0.1:8000/api/like', {
         data: {
           user_id: this.$store.state.user.id,
           shop_id: this.shops[index].shop_id
         }
-      // }).then((response) => {
-      //   console.log(response);
-      // })
-      }).then((response) => {
-        // レスポンスが200の時の処理
-        console.log(response);
-        console.log("消しといたよ");
       })
-      .catch(error => {
-        console.log(('えらー'));
-        console.log(error);
-      });
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err)=> {
+        console.log(err);
+      })
     },
-    change() {
-      this.show = !this.show
-    }
+    // favDel(index) {
+    //   axios.request({
+    //     method: 'delete',
+    //     url: "http://127.0.0.1:8000/api/like",
+    //     data: {
+    //       user_id: this.$store.state.user.id,
+    //       shop_id: this.shops[index].shop_id
+    //     }
+    //   }).then((response) => {
+    //     // レスポンスが200の時の処理
+    //     console.log(response);
+    //     console.log("消しといたよ");
+    //   })
+    //   .catch(error => {
+    //     console.log(('えらー'));
+    //     console.log(error);
+    //   });
+    // },
+    // change() {
+    //   this.show = !this.show
+    // }
   },
   created(){
     this.created();

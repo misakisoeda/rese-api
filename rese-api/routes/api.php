@@ -27,9 +27,9 @@ Route::post('/logout', [LogoutController::class, 'post']);
 Route::get('/user', [UsersController::class, 'get']);
 Route::put('/user', [UsersController::class, 'put']);
 
-Route::get('/like', [LikesController::class, 'index']);
+// Route::get('/like', [LikesController::class, 'index']);
 Route::post('/like', [LikesController::class, 'post']);
-Route::delete('/like',[LikesController::class,'delete']);
+Route::delete('/like',[LikesController::class,'destroy']);
 // Route::post('/like', [LikesController::class, 'delete']);
 // Route::get('/delete', [LikesController::class, 'delete']);
 // Route::post('/delete', [LikesController::class, 'remove']);
