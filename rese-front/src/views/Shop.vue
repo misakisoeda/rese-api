@@ -21,10 +21,8 @@
           </div>
           <button class="btn-heart">
             {{ shop.shop_id }}
-            <!-- <img src="../assets/icon_heart_white.png" class="btn-heart__img" v-if="show" @click="fav(index); change();" alt="">
-            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" v-else @click="favDel(index)" alt=""> -->
-            <img src="../assets/icon_heart_white.png" class="btn-heart__img" @click="fav(index);" alt="">
-            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" @click="favDel(index)" alt="">
+            <img src="../assets/icon_heart_white.png" class="btn-heart__img" v-if="show" @click="fav(index); change();" alt="">
+            <img src="../assets/icon_heart_pink.png" class="btn-heart__img" v-else @click="favDel(index)" alt="">
           </button>
          </div>
          <!-- [/card-item] -->
@@ -100,9 +98,9 @@ export default {
     //     console.log(error);
     //   });
     // },
-    // change() {
-    //   this.show = !this.show
-    // }
+    change() {
+      this.show = !this.show
+    }
   },
   created(){
     this.created();
