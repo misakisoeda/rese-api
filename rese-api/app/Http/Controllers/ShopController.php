@@ -34,7 +34,7 @@ class ShopController extends Controller
     //詳細
     public function store($shop_id, Request $request)
     {
-        $items = Shop::where('shop_id',$shop_id)->first();
+        $items = Shop::with('like')->where('shop_id', $shop_id)->first();
         return response()->json([
             'message' => 'User got successfully',
             'data' => $items
