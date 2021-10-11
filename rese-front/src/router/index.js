@@ -48,9 +48,9 @@ const routes = [{
   path: '/mypage',
   name: 'mypage',
   component: Mypage,
-  meta: {
-    requiresAuth: true,
-  },
+  // meta: {
+  //   requiresAuth: true,
+  // },
 }]
 
 const router = new VueRouter({
