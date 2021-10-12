@@ -51,20 +51,21 @@
             <!-- /[ttl-item] -->
 
             <ul class="list-item">
-                <li class="list-item__content" v-for="(shop,index) in shops" :key="index">
+                <li class="list-item__content" v-for="(like1,index) in likes1" :key="`sensor-${index}`">
+                    {{index}}
                     <div class="card-item">
                         <p class="card-item__img">
-                            <img :src="shop.shop_img" v-bind:alt="shop.shop_name">
+                            <img :src="like1.shop_img" v-bind:alt="like1.shop_name">
                         </p>
                         <div class="card-item__main">
-                            <p class="card-item__ttl">{{shop.shop_name}}</p>
+                            <p class="card-item__ttl">{{like1.shop_name}}</p>
                             <div class="tags-item">
-                                <p class="tags-item__txt">#{{ shop.shop_place }}</p>
-                                <p class="tags-item__txt">#{{ shop.shop_genre }}</p>
+                                <p class="tags-item__txt">#{{ like1.shop_place }}</p>
+                                <p class="tags-item__txt">#{{ like1.shop_genre }}</p>
                             </div>
                             <!-- /[tags-item] -->
                             <div class="card-item__bottom">
-                                <button class="btn-item" @click="detail(shop.shop_id)">詳しく見る</button>
+                                <button class="btn-item" @click="detail(like1.shop_id)">詳しく見る</button>
                             </div>
                         </div>
                         <button class="btn-heart">
@@ -91,7 +92,8 @@ export default {
     data() {
         return {
             shops: [],
-            likes: [],
+            likes1: [],
+            likes2: [],
             name: this.$store.state.user.name,
         };
     },
@@ -104,9 +106,13 @@ export default {
         //お気に入りのを取得
         async createdLikes() {
             const likesItem = await axios.get("http://127.0.0.1:8000/api/like");
-            this.likes = likesItem.data.data;
-            console.log(likesItem);
-            console.log(this.$store.state.user.id);
+            // this.likes1 = likesItem.data.data3;  //shopのデータ
+            // this.likes2 = likesItem.data.data2;  //shopのデータ
+            // console.log(this.likes1);
+            // console.log(this.likes2.id);
+
+            this.likes = likesItem.data;
+            console.log(this.likes);
         },
     },
     created(){

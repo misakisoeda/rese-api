@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+// use App\Models\Like;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,4 +21,11 @@ class Shop extends Model
     //     $txt = 'ID:'.$this->id . ' ' . $this->name . '(' . $this->age .  '才'.') '.$this->nationality;
     //     return $txt;
     // }
+
+    protected $table = 'shops';
+    public function likes()
+    {
+        // return $this->hasMany(Like::class);
+        return $this->belongsTo('App\Models\Like');
+    }
 }

@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // protected $table = 'users';
+    // public function likes()
+    // {
+    //     return $this->belongsToMany('App\Models\Like');
+    // }
+
+    protected $guarded = array('id');
+    public function likes() {
+        return $this->belongsToMany('App\Models\Like')->withTimeStamps();
+    }
 }
